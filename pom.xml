@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.neverfear</groupId>
+	<artifactId>assert-exit</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<url>https://github.com/kay/assert-exit</url>
+
+	<description>
+		JUnit @Rule annotation that provides the ability to assert that System.exit(...) is called with the expected status code.
+	</description>
+
+	<properties>
+		<junit.version>4.11</junit.version>
+		<mockito.version>1.9.5</mockito.version>
+	</properties>
+
+	<developers>
+		<developer>
+			<id>doug</id>
+			<name>Doug Lawrie</name>
+			<url>https://github.com/kay</url>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>scm:git:git://github.com/kay/assert-exit.git</url>
+		<connection>scm:git:git://github.com/kay/assert-exit.git</connection>
+		<developerConnection>scm:git:git://github.com/kay/assert-exit.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<url>https://github.com/kay/assert-exit/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+</project>
