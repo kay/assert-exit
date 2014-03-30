@@ -52,11 +52,14 @@
 	</build>
 
 	<dependencies>
+		<!-- Users may need to exclude this dependency if they use a different 
+			JUnit version to ensure the correct version is being used -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
