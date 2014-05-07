@@ -12,10 +12,21 @@
 		JUnit @Rule annotation that provides the ability to assert that System.exit(...) is called with the expected status code.
 	</description>
 
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<junit.version>4.11</junit.version>
 		<mockito.version>1.9.5</mockito.version>
+		<!-- github server corresponds to entry in ~/.m2/settings.xml as described 
+			in http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github -->
+		<github.global.server>github</github.global.server>
 	</properties>
 
 	<developers>
@@ -49,9 +60,42 @@
 					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.9</version>
+				<configuration>
+					<message>Maven artifacts for ${project.version}</message>
+					<noJekyll>true</noJekyll>
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+					<branch>refs/heads/mvn-repo</branch>
+					<includes>
+						<include>**/*</include>
+					</includes>
+					<repositoryName>assert-exit</repositoryName>
+					<repositoryOwner>kay</repositoryOwner>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
+	
 	<dependencies>
 		<!-- Users may need to exclude this dependency if they use a different 
 			JUnit version to ensure the correct version is being used -->
@@ -68,12 +112,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
 </project>
