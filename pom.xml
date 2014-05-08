@@ -5,12 +5,21 @@
 	<artifactId>assert-exit</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
-	<url>https://github.com/kay/assert-exit</url>
+	<name>assert-exit</name>
 
 	<description>
 		JUnit @Rule annotation that provides the ability to assert that System.exit(...) is called with the expected status code.
 	</description>
+	
+	<url>https://github.com/kay/assert-exit</url>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -68,12 +77,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
 </project>
