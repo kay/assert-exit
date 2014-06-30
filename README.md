@@ -1,3 +1,5 @@
+Project now defunct. Please check out this wonderful project instead: http://stefanbirkner.github.io/system-rules/
+
 assert-exit
 ===========
 
